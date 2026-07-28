@@ -90,9 +90,9 @@ sudo ufw allow "Apache Full"
 Crie o diretorio do site (caso ainda nao exista):
 
 ```bash
-sudo mkdir -p /var/www/vhosts/aikdotemplodojo
-sudo chown -R $USER:$USER /var/www/vhosts/aikdotemplodojo
-sudo chmod -R 755 /var/www/vhosts/aikdotemplodojo
+sudo mkdir -p /var/www/vhosts/aikidotemplodojo
+sudo chown -R $USER:$USER /var/www/vhosts/aikidotemplodojo
+sudo chmod -R 755 /var/www/vhosts/aikidotemplodojo
 ```
 
 ---
@@ -115,19 +115,19 @@ Execute os comandos na maquina local, dentro da pasta do projeto.
 ### Linux/macOS (ou Git Bash)
 
 ```bash
-scp -r index.html styles.css script.js media usuario@177.153.59.199:/var/www/vhosts/aikdotemplodojo/
+scp -r index.html styles.css script.js media usuario@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
 ```
 
 ### Windows PowerShell (OpenSSH)
 
 ```powershell
-scp -r .\index.html, .\styles.css, .\script.js, .\media usuario@177.153.59.199:/var/www/vhosts/aikdotemplodojo/
+scp -r .\index.html, .\styles.css, .\script.js, .\media root@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
 ```
 
 Se preferir enviar tudo da pasta atual:
 
 ```bash
-scp -r ./* root@177.153.59.199:/var/www/vhosts/aikdotemplodojo/
+scp -r ./* root@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
 ```
 
 ---
@@ -145,7 +145,7 @@ rsync -avz --progress \
     --exclude ".git/" \
     --exclude ".vscode/" \
     --exclude "_imgRef/" \
-    ./ usuario@177.153.59.199:/var/www/vhosts/aikdotemplodojo/
+    ./ usuario@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
 ```
 
 Deploy de sincronizacao completa (remove arquivos que nao existem mais localmente):
@@ -155,7 +155,7 @@ rsync -avz --delete --progress \
     --exclude ".git/" \
     --exclude ".vscode/" \
     --exclude "_imgRef/" \
-    ./ usuario@177.153.59.199:/var/www/vhosts/aikdotemplodojo/
+    ./ usuario@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
 ```
 
 ### Windows PowerShell
@@ -181,9 +181,9 @@ Conteudo sugerido:
     ServerName aikidotemplodojo.com.br
     ServerAlias www.aikidotemplodojo.com.br
 
-    DocumentRoot /var/www/vhosts/aikdotemplodojo
+    DocumentRoot /var/www/vhosts/aikidotemplodojo
 
-    <Directory /var/www/vhosts/aikdotemplodojo>
+    <Directory /var/www/vhosts/aikidotemplodojo>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
@@ -227,9 +227,9 @@ sudo certbot renew --dry-run
 Depois do upload, garanta leitura pelo Apache:
 
 ```bash
-sudo chown -R www-data:www-data /var/www/vhosts/aikdotemplodojo
-sudo find /var/www/vhosts/aikdotemplodojo -type d -exec chmod 755 {} \;
-sudo find /var/www/vhosts/aikdotemplodojo -type f -exec chmod 644 {} \;
+sudo chown -R www-data:www-data /var/www/vhosts/aikidotemplodojo
+sudo find /var/www/vhosts/aikidotemplodojo -type d -exec chmod 755 {} \;
+sudo find /var/www/vhosts/aikidotemplodojo -type f -exec chmod 644 {} \;
 ```
 
 ---
@@ -255,13 +255,13 @@ rsync -avz --delete --progress \
     --exclude ".git/" \
     --exclude ".vscode/" \
     --exclude "_imgRef/" \
-    ./ usuario@177.153.59.199:/var/www/vhosts/aikdotemplodojo/
+    ./ usuario@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
 ```
 
 Alternativa com scp:
 
 ```bash
-scp -r index.html styles.css script.js media usuario@177.153.59.199:/var/www/vhosts/aikdotemplodojo/
+scp -r index.html styles.css script.js media usuario@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
 ```
 
 Opcional: limpar cache do navegador com hard refresh (Ctrl+F5) para validar alteracoes.
