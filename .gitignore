@@ -1,0 +1,10 @@
+# Projeto estatico
+
+# Referencias locais de imagem (nao publicar)
+_imgRef/
+_ImfRef/
+
+# Sistema/IDE
+.DS_Store
+Thumbs.db
+.vscode/
