@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editor Local da Galeria</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="galeria.css" />
+    <style>
+      .editor-wrap {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 1rem;
+      }
+
+      .editor-panel,
+      .list-panel {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: 1rem;
+        padding: 1rem;
+      }
+
+      .editor-grid {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      label {
+        display: grid;
+        gap: 0.2rem;
+        font-family: "Barlow Condensed", sans-serif;
+        text-transform: uppercase;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        font: inherit;
+        border: 1px solid var(--line);
+        border-radius: 0.55rem;
+        padding: 0.6rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      button {
+        cursor: pointer;
+        background: #fff;
+      }
+
+      .primary {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary-strong);
+      }
+
+      .item-row {
+        border: 1px solid var(--line);
+        border-radius: 0.75rem;
+        padding: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .item-head {
+        display: grid;
+        grid-template-columns: 112px 1fr;
+        gap: 0.75rem;
+        align-items: start;
+      }
+
+      .item-thumb {
+        width: 112px;
+        height: 84px;
+        border: 1px solid var(--line);
+        border-radius: 0.45rem;
+        object-fit: cover;
+        background: #141414;
+      }
+
+      .item-meta {
+        min-width: 0;
+      }
+
+      .inline-field {
+        display: grid;
+        gap: 0.22rem;
+        margin: 0.25rem 0;
+      }
+
+      .inline-field span {
+        font-size: 0.86rem;
+        letter-spacing: 0.02em;
+      }
+
+      .inline-field input,
+      .inline-field textarea {
+        width: 100%;
+        font-size: 1rem;
+        background: #fff;
+      }
+
+      .inline-field textarea {
+        resize: vertical;
+        min-height: 3.2rem;
+      }
+
+      .item-row h4 {
+        margin: 0 0 0.25rem;
+        font-family: "Barlow Condensed", sans-serif;
+        text-transform: uppercase;
+      }
+
+      .item-row p {
+        margin: 0.15rem 0;
+        font-size: 1rem;
+        overflow-wrap: anywhere;
+      }
+
+      @media (max-width: 900px) {
+        .editor-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .item-head {
+          grid-template-columns: 1fr;
+        }
+
+        .item-thumb {
+          width: 100%;
+          height: 160px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">A</span>
+          <span class="brand-text">Editor Local da Galeria</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="container reveal is-visible">
+        <p class="section-tag">Uso local</p>
+        <h1 class="gallery-title">Classificar fotos e videos por secao</h1>
+        <p class="lead">
+          Esta pagina e para uso local. Nao inclua este arquivo no deploy do servidor.
+        </p>
+
+        <div class="editor-wrap">
+          <article class="editor-panel">
+            <h2>Cadastro de item</h2>
+            <form id="item-form" class="editor-grid">
+              <label>
+                Caminho do arquivo
+                <input id="item-src" required placeholder="galery/IMG-20250706-WA0033.jpg" />
+              </label>
+              <label>
+                Tipo
+                <select id="item-type">
+                  <option value="image">Imagem</option>
+                  <option value="video">Video</option>
+                </select>
+              </label>
+              <label>
+                Secao
+                <input id="item-section" required placeholder="Treino de domingo" />
+              </label>
+              <label>
+                Titulo
+                <input id="item-title" required placeholder="Ukemi e deslocamento" />
+              </label>
+              <label>
+                Legenda
+                <textarea id="item-caption" rows="3" placeholder="Descricao curta da cena"></textarea>
+              </label>
+              <div class="actions">
+                <button type="submit" class="primary">Adicionar item</button>
+                <button type="button" id="clear-form">Limpar</button>
+              </div>
+            </form>
+
+            <hr />
+
+            <div class="actions">
+              <button type="button" id="load-project-xml">Carregar XML do projeto</button>
+              <button type="button" id="import-xml">Importar XML</button>
+              <button type="button" id="export-xml" class="primary">Exportar XML</button>
+              <button type="button" id="save-xml">Salvar XML no arquivo</button>
+            </div>
+            <p id="status-text" class="editor-note"></p>
+            <input id="import-file" type="file" accept=".xml,text/xml" hidden />
+          </article>
+
+          <article class="list-panel">
+            <h2>Itens cadastrados</h2>
+            <div id="items-list"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="galeria-editor-local.js"></script>
+  </body>
+</html>

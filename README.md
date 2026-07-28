@@ -38,9 +38,23 @@ Este projeto e um site estatico (HTML/CSS/JS + pasta de midia).
 ## Estrutura do projeto
 
 - index.html
+- galeria.html
+- galeria.css
+- galeria.js
+- galeria-editor-local.html (uso local, nao subir para producao)
+- galeria-editor-local.js (uso local, nao subir para producao)
 - styles.css
 - script.js
 - media/
+- galery/
+    - galeria.xml
+
+## Galeria em XML
+
+- A pagina publica `galeria.html` carrega os itens de `galery/galeria.xml`.
+- O arquivo XML contem seções e itens com titulo e legenda.
+- Para editar classificacoes (secao/titulo/legenda), use `galeria-editor-local.html` apenas localmente.
+- O editor permite importar, editar e exportar XML.
 
 ## Git: ignorar pasta de referencia de imagens
 
@@ -121,8 +135,13 @@ scp -r index.html styles.css script.js media usuario@177.153.59.199:/var/www/vho
 ### Windows PowerShell (OpenSSH)
 
 ```powershell
-scp -r .\index.html, .\styles.css, .\script.js, .\media root@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
+scp -r .\index.html, .\galeria.html, .\galeria.css, .\galeria.js, .\styles.css, .\script.js, .\media, .\galery root@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
 ```
+
+Nao envie os arquivos locais de edicao:
+
+- `galeria-editor-local.html`
+- `galeria-editor-local.js`
 
 Se preferir enviar tudo da pasta atual:
 

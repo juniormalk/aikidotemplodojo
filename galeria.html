@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria | Templo Dojo Aikido</title>
+    <meta
+      name="description"
+      content="Galeria de fotos e videos do Templo Dojo Aikido, organizada por secoes com legendas."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="galeria.css" />
+  </head>
+  <body>
+    <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html#inicio">
+          <span class="brand-mark">A</span>
+          <span class="brand-text">Templo Dojo Aikido</span>
+        </a>
+        <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span class="menu-label">Menu</span>
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+          <a href="index.html#inicio">Inicio</a>
+          <a href="index.html#aikido">Aikido</a>
+          <a href="index.html#dojo">Dojo</a>
+          <a href="index.html#horarios">Horarios</a>
+          <a href="galeria.html" aria-current="page">Galeria</a>
+          <a href="index.html#contato">Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container reveal">
+        <p class="section-tag">Memorias do Dojo</p>
+        <h1 class="gallery-title">Galeria de Fotos e Videos</h1>
+        <p class="lead">
+          Registros de treinos, seminarios e encontros. 
+        </p>
+      </section>
+
+      <section class="container reveal" id="gallery-sections" aria-live="polite">
+        <p class="gallery-loading">Carregando galeria...</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>Templo Dojo Aikido</h2>
+          <p>Sociedade Cultural ABC</p>
+        </div>
+        <div>
+          <h3>Navegacao</h3>
+          <p><a href="index.html">Pagina inicial</a></p>
+          <p><a href="galeria.html">Galeria</a></p>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <p><a href="https://wa.me/5511994992499" target="_blank" rel="noreferrer">11 99499-2499</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="galeria.js"></script>
+  </body>
+</html>
