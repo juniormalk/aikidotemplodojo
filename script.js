@@ -1,3 +1,18 @@
+const welcomeModal = document.querySelector('#welcome-modal');
+
+if (welcomeModal) {
+  welcomeModal.querySelectorAll('.welcome-modal-close, [data-dismiss-welcome]').forEach((button) => {
+    button.addEventListener('click', () => welcomeModal.close());
+  });
+
+  welcomeModal.addEventListener('close', () => {
+    document.documentElement.classList.remove('welcome-modal-open');
+  });
+
+  welcomeModal.showModal();
+  document.documentElement.classList.add('welcome-modal-open');
+}
+
 const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('#site-nav');
 
