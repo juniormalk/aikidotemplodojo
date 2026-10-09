@@ -281,6 +281,7 @@ Alternativa com scp:
 
 ```bash
 scp -r index.html styles.css script.js media usuario@177.153.59.199:/var/www/vhosts/aikidotemplodojo/
+
 ```
 
 Opcional: limpar cache do navegador com hard refresh (Ctrl+F5) para validar alteracoes.
